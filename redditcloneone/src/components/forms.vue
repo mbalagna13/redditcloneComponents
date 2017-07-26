@@ -10,7 +10,7 @@
                         <input
                                 type="text"
                                 id="title"
-                                v-model.lazy="title"
+                                v-model.lazy="post.title"
                                 class="form-control">
                                 <!-- :value="userData.email" -->
                                 <!-- @input="userData.email = $event.target.value"> -->
@@ -22,7 +22,7 @@
                         <input
                                 type="text"
                                 id="url"
-                                v-model.lazy="url"
+                                v-model.lazy="post.url"
                                 class="form-control">
 
                     </div>
@@ -32,10 +32,10 @@
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-group">
                     <label for="description">Description</label><br>
                     <textarea
-                            id="eescription"
+                            id="description"
                             rows="5"
                             class="form-control"
-                            v-model.lazy="description">
+                            v-model.lazy="post.description">
                             </textarea>
                 </div>
             </div>
@@ -43,40 +43,51 @@
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                     <button
                             class="btn btn-primary"
-                            @click.prevent="submitted">Submit!
+                            @click.prevent="addPost">Submit!
                     </button>
                 </div>
             </div>
     </form>
     <hr>
-    <p>{{title}}</p>
-    <p>{{url}}</p>
-    <p>{{description}}</p>
+    <p>{{post.title}}</p>
+    <p>{{post.url}}</p>
+    <p>{{post.description}}</p>
     <p>{{newMessage}}</p>
     <button type="button" name="button"
-            @click="editMessage()">Change that message</button>
+            @click="addPost()">Add new Post</button>
   </div>
 </template>
 
 <script>
 
-import eventBus from '../main.js'
+
 
 export default {
+
   data () {
     return {
       message: "Navbar to forms, bruh",
-      title: '',
-      description: '',
-      url: ''
+      post :{
+        title: '',
+        description: '',
+        url: '',
+        counter:0
+      }
+
     }
   },
-  props: ['newMessage'],
+  props: ['newMessage', 'onAddPost'],
   methods: {
-    editMessage() {
-      this.newMessage = 'did this work?';
-      // this.$emit('messageChanged', this.newMessage)
-      eventBus.$emit('messageChanged', this.newMessage)
+    addPost() {
+      this.onAddPost({
+        title: this.post.title,
+        description: this.post.description,
+        url: this.post.url,
+        counter:0
+      });
+      this.post.title = '';
+      this.post.description = '';
+      this.post.url = '';
     }
   }
 }

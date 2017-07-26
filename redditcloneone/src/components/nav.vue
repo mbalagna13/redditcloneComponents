@@ -17,7 +17,8 @@
     <!-- form component -->
     <newpostform :newMessage='newMessage'
                   @messageChanged='newMessage = $event'
-                  v-if="show"></newpostform>
+                  v-if="show"
+                  :onAddPost="onAddPost"></newpostform>
     <p>{{newMessage}}</p>
   </div>
 </template>
@@ -26,6 +27,7 @@
 import submitForm from './forms.vue'
 
 export default {
+  props: ['onAddPost'],
   data () {
     return {
       newMessage: '',
