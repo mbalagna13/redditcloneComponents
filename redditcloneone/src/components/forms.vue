@@ -43,18 +43,12 @@
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                     <button
                             class="btn btn-primary"
-                            @click.prevent="addPost">Submit!
+                            @click.prevent="addPost">Add post bruh
                     </button>
                 </div>
             </div>
     </form>
     <hr>
-    <p>{{post.title}}</p>
-    <p>{{post.url}}</p>
-    <p>{{post.description}}</p>
-    <p>{{newMessage}}</p>
-    <button type="button" name="button"
-            @click="addPost()">Add new Post</button>
   </div>
 </template>
 

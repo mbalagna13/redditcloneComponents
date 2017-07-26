@@ -15,6 +15,7 @@
 
 <script>
 export default {
+  props:[posts]
   data () {
     return {
       comment: "Hello!",

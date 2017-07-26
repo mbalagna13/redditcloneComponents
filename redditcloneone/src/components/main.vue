@@ -12,6 +12,7 @@ import navBar from './nav.vue'
 import postcomp from './postcomp.vue'
 import posts from '../lib/post'
 
+
 export default {
   name: 'app',
   components: {

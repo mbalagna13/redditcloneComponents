@@ -28,7 +28,8 @@
                 </div>
               </div>
                       <hr>
-                      <comments></comments>
+                      <comments
+                        :posts='posts'></comments>
             </li>
           </ul>
     </div>
