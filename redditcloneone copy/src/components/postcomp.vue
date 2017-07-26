@@ -22,7 +22,7 @@
                         {{post.title}}</h4>
 
                         {{post.description}}
-                    
+
                       </div>
                   </div>
                 </div>
